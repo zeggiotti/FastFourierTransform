@@ -116,4 +116,12 @@ public class MainTest {
         Assert.assertArrayEquals(stepFImg, myImg, 0.01d);
     }
 
+    @Test
+    public void powerOfTwoTest() {
+        myTransformer = new FastFourierTransform();
+
+        Assert.assertTrue(myTransformer.isPowerOfTwo(256));
+        Assert.assertFalse(myTransformer.isPowerOfTwo(255));
+    }
+
 }

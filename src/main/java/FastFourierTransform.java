@@ -111,9 +111,13 @@ public class FastFourierTransform {
         return result;
     }
 
-    private boolean isPowerOfTwo(int n) {
-        double a = Math.log(n) / Math.log(2);
-        return (int) (Math.ceil(a)) == (int) (Math.floor(a));
+    /**
+     * Controlla se un numero è potenza di 2 dalla rappresentazione binaria:
+     * Se è potenza di 2 è del tipo 001000...00 e n - 1=00011...11.
+     * Allora n - (n - 1) == 0.
+     */
+    public boolean isPowerOfTwo(int n) {
+        return (n & (n - 1)) == 0 && n != 0;
     }
 
     private int getNearestPowerOfTwo(int a) {
